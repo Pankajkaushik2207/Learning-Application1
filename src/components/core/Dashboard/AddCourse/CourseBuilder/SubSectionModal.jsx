@@ -36,14 +36,22 @@ export default function SubSectionModal({
   const { token } = useSelector((state) => state.auth)
   const { course } = useSelector((state) => state.course)
 
+  // useEffect(() => {
+  //   if (view || edit) {
+  //     // console.log("modalData", modalData)
+  //     setValue("lectureTitle", modalData.title)
+  //     setValue("lectureDesc", modalData.description)
+  //     setValue("lectureVideo", modalData.videoUrl)
+  //   }
+  // }, [])
   useEffect(() => {
     if (view || edit) {
-      // console.log("modalData", modalData)
-      setValue("lectureTitle", modalData.title)
-      setValue("lectureDesc", modalData.description)
-      setValue("lectureVideo", modalData.videoUrl)
+      setValue("lectureTitle", modalData.title);
+      setValue("lectureDesc", modalData.description);
+      setValue("lectureVideo", modalData.videoUrl);
     }
-  }, [])
+  }, [setValue, modalData.title, modalData.description, modalData.videoUrl, edit, view]);
+  
 
   // detect whether form is updated or not
   const isFormUpdated = () => {

@@ -17,11 +17,17 @@ export default function PublishCourse() {
   const { course } = useSelector((state) => state.course)
   const [loading, setLoading] = useState(false)
 
+  // useEffect(() => {
+  //   if (course?.status === COURSE_STATUS.PUBLISHED) {
+  //     setValue("public", true)
+  //   }
+  // }, [])
   useEffect(() => {
     if (course?.status === COURSE_STATUS.PUBLISHED) {
-      setValue("public", true)
+      setValue("public", true);
     }
-  }, [])
+  }, [course?.status, setValue]);
+  
 
   const goBack = () => {
     dispatch(setStep(2))
